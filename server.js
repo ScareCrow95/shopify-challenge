@@ -1,13 +1,12 @@
-require('dotenv').config()
-
 import http from 'http'
 import api from './api/api.js'
 import { initDatabase } from './database/dbHelper.js'
+const port = 8200
 
 async function startup() {
   const server = http.Server(api)
   initDatabase()
-  server.listen(process.env.PORT)
-  console.log(`server started at ${process.env.PORT}`)
+  server.listen(port)
+  console.log(`server started at ${port}`)
 }
 startup()

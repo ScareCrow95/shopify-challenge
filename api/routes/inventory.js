@@ -2,13 +2,30 @@ import { Router } from 'express'
 import createInventory from '../../services/inventory/createInventory'
 import editInventory from '../../services/inventory/editInventory'
 import exportInventory from '../../services/inventory/exportInventory'
+import getInventory from '../../services/inventory/getInventory'
 import removeInventory from '../../services/inventory/removeInventory'
+import viewAllInventory from '../../services/inventory/viewAllInventory'
 
 const router = Router()
 
 router.post('/create', (req, res) => {
   createInventory(req.body)
   res.redirect('/list')
+})
+
+router.get('/list', (req, res) => {
+  /**
+   * returns the array of all inventory
+   */
+  res.json(viewAllInventory())
+})
+
+router.get('/get', (req, res) => {
+  const result = getInventory(req.query)
+  /**
+   * returns the array of all inventory
+   */
+  res.json(result)
 })
 
 router.post('/delete', (req, res) => {
@@ -40,4 +57,4 @@ router.get('/export', (req, res) => {
   return res.send(result)
 })
 
-export default router
+export const inventoryRouter = router
