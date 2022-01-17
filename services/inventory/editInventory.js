@@ -18,7 +18,7 @@ export default ({ id, name, quantity }) => {
     InventoryModel().update(result)
     //persist on disc
     Database().saveDatabase()
-    return result
+    return { id, quantity, name }
   }
   return { error: 'inventory not found' }
 }

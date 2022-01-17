@@ -8,13 +8,16 @@ import loki from 'lokijs'
 let db = new loki('inventory.json')
 let inventory
 
-export const initDatabase = async () => {
+export const initDatabase = () => {
+  return new Promise((resolve, reject) => {
+    db.loadDatabase({}, () => {
+      inventory = db.addCollection('inventory', { indices: ['id'] })
+      resolve(true)
+    })
+  })
   /**
    * try and restore the databse if it exists on disc, if not initialize and continue
    */
-  db.loadDatabase({}, () => {
-    inventory = db.addCollection('inventory', { indices: ['id'] })
-  })
 }
 
 export const InventoryModel = () => inventory

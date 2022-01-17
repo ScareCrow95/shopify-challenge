@@ -5,7 +5,7 @@
   "author": "Mridul Pareek",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon -r esm server.js  --config nodemon.json"
   },
   "keywords": [],
@@ -23,5 +23,11 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "querystring": "^0.2.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.8",
+    "babel-jest": "^27.4.6",
+    "jest": "^27.4.7",
+    "ts-jest": "^27.1.3"
   }
 }
