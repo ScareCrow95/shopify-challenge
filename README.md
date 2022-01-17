@@ -43,4 +43,5 @@ https://documenter.getpostman.com/view/8665753/UVXkoaZs
 2. Run ```npm start``` in the same directory to launch the web-server at port 8200
 3. visit ```http://localhost:8200``` to access in your browser.
 
-
+## Unit Tests
+```npm run test ```
