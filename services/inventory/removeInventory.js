@@ -1,6 +1,6 @@
 import { Database, InventoryModel } from '../../database/dbHelper'
 
-export default async ({ id }) => {
+export default ({ id }) => {
   const result = InventoryModel().findOne({ id })
   if (result) {
     InventoryModel().remove(result)
@@ -8,6 +8,6 @@ export default async ({ id }) => {
     Database().saveDatabase()
     return true
   } else {
-    return false
+    return { error: 'inventory not found' }
   }
 }

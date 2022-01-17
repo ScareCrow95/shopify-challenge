@@ -9,8 +9,14 @@ import viewAllInventory from '../../services/inventory/viewAllInventory'
 const router = Router()
 
 router.post('/create', (req, res) => {
-  createInventory(req.body)
-  res.redirect('/list')
+  const result = createInventory(req.body)
+  console.log(result)
+  if (result.error) {
+    res.statusCode = 400
+    res.json(result)
+  } else {
+    res.redirect('/list')
+  }
 })
 
 router.get('/list', (req, res) => {
@@ -25,17 +31,24 @@ router.get('/get', (req, res) => {
   /**
    * returns the array of all inventory
    */
+  if (result.error) {
+    res.statusCode = 404
+  }
   res.json(result)
 })
 
 router.post('/delete', (req, res) => {
   const result = removeInventory(req.query)
   /**
-   * here we can handle the logic where the inventory was deleted or not
-   * currently it simply redirects to list page, if the inventory was not
-   * deleted it does not effect functionality
+   * if the inventory doesnt exist send the 404 code with error
+   * else redirect to get the updated list
    */
-  res.redirect('/list')
+  if (result.error) {
+    res.statusCode = 404
+    res.json(result)
+  } else {
+    res.redirect('/list')
+  }
 })
 
 router.post('/edit', (req, res) => {
@@ -44,7 +57,15 @@ router.post('/edit', (req, res) => {
    * we can send the data back to client here, since I am using handlebars
    * a simple redirect is enough, as it will reload the inventory list.
    */
-  res.redirect('/list')
+  if (result.error) {
+    /**
+     * some validation error occured or inventory you are trying to edit doesnt exist
+     * */
+    res.statusCode = 400
+    res.json(result)
+  } else {
+    res.redirect('/list')
+  }
 })
 
 router.get('/export', (req, res) => {
@@ -52,9 +73,13 @@ router.get('/export', (req, res) => {
   /**
    * setup correct headers for file to be downloaded
    */
-  res.header('Content-Type', 'text/csv')
-  res.attachment('inventory-exports.csv')
-  return res.send(result)
+  if (!result) {
+    res.send({ error: 'inventory list empty' })
+  } else {
+    res.header('Content-Type', 'text/csv')
+    res.attachment('inventory-exports.csv')
+    return res.send(result)
+  }
 })
 
 export const inventoryRouter = router

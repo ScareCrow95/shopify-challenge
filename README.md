@@ -8,11 +8,11 @@ Nodejs Express web-app.
  * ``Lokijs: local database``
 
 ## Inventory Model
-  * ``id: integer, unique``
+  * ``id: integer, unique, required``
   * ``name: string, required``
   * ``quantity: integer, required``
 
-Note: if ``id`` exists, it will just overwrite the values. ``CRUD`` operations are supported, and the inventory list can be exported by clicking ``Export to CSV`` button.
+``CRUD`` operations are supported, and the inventory list can be exported by clicking ``Export to CSV`` button.
 
 ## API Routes
 * ```/api/inventory/create``` ``POST`` expects Inventory data in body parameters
@@ -21,6 +21,10 @@ Note: if ``id`` exists, it will just overwrite the values. ``CRUD`` operations a
 * ```/api/inventory/delete?id=shoes``` ``POST``
 * ```/api/inventory/list``` ``GET``
 * ```/api/inventory/get?id=shoes``` ``GET``
+
+```
+Postman documentation: https://documenter.getpostman.com/view/8665753/UVXkoaZs
+```
 
 ## Pages URL
 * ```/list```

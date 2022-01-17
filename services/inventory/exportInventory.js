@@ -6,5 +6,7 @@ export default () => {
    * this will either be a [] or will have values in array.
    * no need for any other checks
    */
-  return parse(result, { fields: ['id', 'name', 'quantity'] })
+  if (result.length)
+    return parse(result, { fields: ['id', 'name', 'quantity'] })
+  else return null
 }
