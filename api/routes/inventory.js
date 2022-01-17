@@ -10,7 +10,6 @@ const router = Router()
 
 router.post('/create', (req, res) => {
   const result = createInventory(req.body)
-  console.log(result)
   if (result.error) {
     res.statusCode = 400
     res.json(result)
