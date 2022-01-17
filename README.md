@@ -22,8 +22,9 @@ Nodejs Express web-app.
 * ```/api/inventory/list``` ``GET``
 * ```/api/inventory/get?id=shoes``` ``GET``
 
+## Postman documentation: 
 ```
-Postman documentation: https://documenter.getpostman.com/view/8665753/UVXkoaZs
+https://documenter.getpostman.com/view/8665753/UVXkoaZs
 ```
 
 ## Pages URL
