@@ -15,17 +15,17 @@ Nodejs Express web-app.
 Note: if ``id`` exists, it will just overwrite the values. ``CRUD`` operations are supported, and the inventory list can be exported by clicking ``Export to CSV`` button.
 
 ## API Routes
-```/api/inventory/create``` ``POST`` expects Inventory data in body parameters
-```/api/inventory/export``` ``GET``
-```/api/inventory/edit``` ``POST`` expects Inventory data in body parameters
-```/api/inventory/delete?id=shoes``` ``POST``
-```/api/inventory/list``` ``GET``
-```/api/inventory/get?id=shoes``` ``GET``
+* ```/api/inventory/create``` ``POST`` expects Inventory data in body parameters
+* ```/api/inventory/export``` ``GET``
+* ```/api/inventory/edit``` ``POST`` expects Inventory data in body parameters
+* ```/api/inventory/delete?id=shoes``` ``POST``
+* ```/api/inventory/list``` ``GET``
+* ```/api/inventory/get?id=shoes``` ``GET``
 
 ## Pages URL
-```/list```
-```/create```
-```/edit```
+* ```/list```
+* ```/create```
+* ```/edit```
 
 ## Requirements
 
