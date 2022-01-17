@@ -1,0 +1,25 @@
+<div class="container-sm w-25 p-4">
+    <h1 class="mb-4 text-center">Create Inventory</h1>
+    <form action="/api/inventory/create" method="post">
+        <div class="form-group mb-2">
+            <label for="inv-id">Inventory ID</label>
+            <input type="text" class="form-control" id="inv-id" aria-describedby="inv-id"
+                placeholder="Enter Inventory Id" name='id' required>
+            <small id="inv-id-help" class="form-text text-muted">Enter the unique Inventory ID</small>
+        </div>
+        <div class="form-group mb-2">
+            <label for="inv-name">Inventory Name</label>
+            <input name='name' type="text" class="form-control" id="inv-name" aria-describedby="inv-name"
+                placeholder="Enter Inventory Name" required>
+        </div>
+        <div class="form-group mb-2">
+            <label for="inv-quantity">Quantity</label>
+            <input name='quantity' type="number" class="form-control" id="inv-quantity" aria-describedby="inv-quantity"
+                placeholder="Enter Inventory Quantity" required min="0">
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-primary ">Create Inventory</button>
+            <a href="/" class="btn btn-danger  ">Cancel</a>
+        </div>
+    </form>
+</div>

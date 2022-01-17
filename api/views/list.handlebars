@@ -1,0 +1,36 @@
+<div class='container-sm mt-4'>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Inventory ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <th scope="row">{{this.index}}</th>
+            <td>{{this.id}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.quantity}}</td>
+            <td>
+                <form action="/edit?id={{this.id}}" method="post">
+                    <button type="submit" class="btn btn-primary btn-sm mr-2">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="/api/inventory/delete?id={{this.id}}" method="post">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-between">
+        <a href="/create" class="btn btn-primary">Create Inventory</a>
+        <a href="/api/inventory/export" target="_blank" class="btn btn-secondary">Export CSV</a>
+    </div>
+</div>
